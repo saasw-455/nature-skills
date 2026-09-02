@@ -1,0 +1,38 @@
+{
+  "name": "nature-skills",
+  "owner": {
+    "name": "Yizhe Yuan and Nature Skills contributors",
+    "url": "https://github.com/Yuan1z0825"
+  },
+  "description": "Nature Skills — 面向 Nature/CNS 投稿全流程的学术写作、绘图、审稿与文献技能集。",
+  "plugins": [
+    {
+      "name": "nature-skills",
+      "source": "./",
+      "description": "20 个学术研究技能：写作、润色、绘图、审稿、回复、文献检索、论文转 PPT/专利等。nature-shared 为其他技能的共享支持包。",
+      "license": "Apache-2.0",
+      "skills": [
+        "./skills/nature-academic-search",
+        "./skills/nature-citation",
+        "./skills/nature-data",
+        "./skills/nature-downloader",
+        "./skills/nature-experiment-log",
+        "./skills/nature-figure",
+        "./skills/nature-image2ppt",
+        "./skills/nature-literature-pipeline",
+        "./skills/nature-paper-card",
+        "./skills/nature-paper-to-patent",
+        "./skills/nature-paper2ppt",
+        "./skills/nature-polishing",
+        "./skills/nature-proposal-writer",
+        "./skills/nature-reader",
+        "./skills/nature-ref-verifier",
+        "./skills/nature-response",
+        "./skills/nature-reviewer",
+        "./skills/nature-shared",
+        "./skills/nature-statistics",
+        "./skills/nature-writing"
+      ]
+    }
+  ]
+}
