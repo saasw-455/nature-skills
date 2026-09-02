@@ -1,0 +1,31 @@
+name: Sync with upstream
+
+# 每周一 00:10 UTC 自动从上游合并更新；也可在 Actions 页手动运行。
+# 用 merge 而非 force，保留本 fork 独有的提交（如 .claude-plugin/）。
+on:
+  schedule:
+    - cron: '10 0 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Merge upstream/main
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote add upstream https://github.com/Yuan1z0825/nature-skills.git
+          git fetch upstream main
+          if git merge-base --is-ancestor upstream/main HEAD; then
+            echo "already up to date"; exit 0
+          fi
+          git merge --no-edit upstream/main
+          git push origin HEAD:main
