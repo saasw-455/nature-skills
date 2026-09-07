@@ -27,5 +27,5 @@ jobs:
           if git merge-base --is-ancestor upstream/main HEAD; then
             echo "already up to date"; exit 0
           fi
-          git merge --no-edit upstream/main
+          git merge --no-edit -X theirs upstream/main
           git push origin HEAD:main
