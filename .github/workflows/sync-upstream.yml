@@ -2,6 +2,8 @@ name: Sync with upstream
 
 # 每周一 00:10 UTC 自动从上游合并更新；也可在 Actions 页手动运行。
 # 用 merge 而非 force，保留本 fork 独有的提交（如 .claude-plugin/）。
+# 冲突一律以上游为准（-X theirs），避免 README/star-history 挡住同步。
+# GITHUB_TOKEN 不允许推送 .github/workflows 的改动，因此同步时保留 fork 自己的 workflows。
 on:
   schedule:
     - cron: '10 0 * * 1'
@@ -27,5 +29,13 @@ jobs:
           if git merge-base --is-ancestor upstream/main HEAD; then
             echo "already up to date"; exit 0
           fi
-          git merge --no-edit -X theirs upstream/main
+          BEFORE=$(git rev-parse HEAD)
+          git merge --no-commit --no-ff -X theirs upstream/main || true
+          if git ls-files -u | grep -q .; then
+            echo "unresolved conflicts:"; git ls-files -u; exit 1
+          fi
+          rm -rf .github/workflows
+          git checkout "$BEFORE" -- .github/workflows
+          git add -A .github/workflows
+          git commit --no-edit
           git push origin HEAD:main
