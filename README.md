@@ -17,7 +17,15 @@
     · <a href="#7-贡献与开发">贡献方式</a>
     · <a href="README_EN.md">English</a>
   </p>
+  <p>
+    <b>Nature Skills 网页版：内置 Nature Polishing（论文润色）与 Nature Figure（科研绘图）核心功能，访问地址 <a href="https://natureskills.cn">https://natureskills.cn</a></b>
+  </p>
+  <a href="https://natureskills.cn">
+    <img width="2559" height="1527" alt="Nature Skills 网页版预览" src="https://github.com/user-attachments/assets/d57703ab-7ccb-4652-8810-8af1bb032032" />
+  </a>
+
 </div>
+
 
 ---
 
@@ -65,8 +73,7 @@
       <a href="https://apiciyuan.top/">https://apiciyuan.top/</a>
     </td>
     <td align="center" width="32%">
-<img width="1088" height="1101" alt="250d280342f34902a527721a118ac52e" src="https://github.com/user-attachments/assets/de1432e7-23ca-476d-9a68-30cd78f23ffd" />
-
+<img width="612" height="605" alt="image" src="https://github.com/user-attachments/assets/ece77cfa-420f-44e4-b8e2-73adc1e4bd43" />
       扫码添加微信客服
   </tr>
 </table>
@@ -657,4 +664,4 @@ description: >-
 
 ## 8. Star 历史
 
-[![Star History Chart](assets/star-history-20260919T023936Z.svg)](https://star-history.com/#Yuan1z0825/nature-skills&Date)
+[![Star History Chart](assets/star-history-20260928T025427Z.svg)](https://star-history.com/#Yuan1z0825/nature-skills&Date)
