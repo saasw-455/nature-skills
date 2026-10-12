@@ -31,11 +31,14 @@ jobs:
           fi
           BEFORE=$(git rev-parse HEAD)
           git merge --no-commit --no-ff -X theirs upstream/main || true
-          if git ls-files -u | grep -q .; then
-            echo "unresolved conflicts:"; git ls-files -u; exit 1
-          fi
+          # 本 fork 永远用自己的 .github/workflows：先还原，再检查冲突。
+          # 顺序很重要——上游若修改了 fork 已删除的 workflow 文件，会留下
+          # modify/delete 冲突，-X theirs 处理不了；还原必须发生在守卫之前。
           rm -rf .github/workflows
           git checkout "$BEFORE" -- .github/workflows
           git add -A .github/workflows
+          if git ls-files -u | grep -q .; then
+            echo "unresolved conflicts:"; git ls-files -u; exit 1
+          fi
           git commit --no-edit
           git push origin HEAD:main
