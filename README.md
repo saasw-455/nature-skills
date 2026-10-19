@@ -73,8 +73,7 @@
       <a href="https://apiciyuan.top/">https://apiciyuan.top/</a>
     </td>
     <td align="center" width="32%">
-<img width="1060" height="1052" alt="841aaa844ec7809eab6fadb96570c0d0" src="https://github.com/user-attachments/assets/ca794428-6039-4ee0-ad64-31856b9d9f36" />
-
+<img width="688" height="636" alt="31c401d51eee5b5dbdc5209cb9cb4131" src="https://github.com/user-attachments/assets/cab3d62c-b3ce-4e76-b701-1d22a26e818a" />
       扫码添加微信客服
   </tr>
 </table>
@@ -668,4 +667,4 @@ description: >-
 
 ## 8. Star 历史
 
-[![Star History Chart](assets/star-history-20261010T024541Z.svg)](https://star-history.com/#Yuan1z0825/nature-skills&Date)
+[![Star History Chart](assets/star-history-20261019T023923Z.svg)](https://star-history.com/#Yuan1z0825/nature-skills&Date)
