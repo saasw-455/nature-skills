@@ -73,7 +73,8 @@
       <a href="https://apiciyuan.top/">https://apiciyuan.top/</a>
     </td>
     <td align="center" width="32%">
-<img width="688" height="636" alt="31c401d51eee5b5dbdc5209cb9cb4131" src="https://github.com/user-attachments/assets/cab3d62c-b3ce-4e76-b701-1d22a26e818a" />
+<img width="1170" height="963" alt="d4299d264d3e48d8bf67951e6fe61be4_compress" src="https://github.com/user-attachments/assets/30bd4ff5-5560-455b-9b47-9d06596ac699" />
+
       扫码添加微信客服
   </tr>
 </table>
@@ -495,7 +496,7 @@ OpenClaw、OpenCode、Hermes 的具体接入方式见 [OpenClaw / OpenCode / Her
 | [`nature-statistics`](skills/nature-statistics/README.md) | Draft | 审查、改写或起草统计报告，覆盖实验单位、重复数、p 值、多重比较、效应量、置信区间、图注统计和跨章节数值一致性 | “Nature statistics”, “统计审查”, “statistical analysis”, “p value”, “sample size”, “replicates”, “multiple comparisons”, “图注统计”, “统计分析小节” | [详情](skills/nature-statistics/README.md) |
 | [`nature-reader`](skills/nature-reader/README.md) | Beta | 生成带来源锚点、图文对应、公式渲染和中英文对照的全文 Markdown reader | “nature reader”, “全文 Markdown”, “原文对照”, “图文对应”, “公式渲染”, “全文翻译” | [详情](skills/nature-reader/README.md) |
 | [`nature-paper-xray`](skills/nature-paper-xray/README.md) | Beta | 把一篇论文读到能复述作者的推理：还原真实的出发点、分清承重设计与装饰、公式落到能手算的例子、核对证据边界 | “精读论文”, “讲透这篇论文”, “作者为什么这么设计”, “这个公式怎么推出来的”, “paper x-ray” | [详情](skills/nature-paper-xray/README.md) |
-| [`nature-paper-trans`](skills/nature-paper-trans/README.md) | Beta | 将英文论文 PDF 的全文或指定页逐页生图翻译为简体中文 A4 图片型 PDF，并提供逐页检查说明 | “论文翻译”, “翻译论文 PDF”, “nature paper trans” | [详情](skills/nature-paper-trans/README.md) |
+| [`nature-paper-trans`](skills/nature-paper-trans/README.md) | Beta | 将英文论文 PDF 全文或指定页逐页生图翻译，对照检查后交付保留源页尺寸的中文图片型 PDF；A4 按需指定 | “论文翻译”, “翻译论文 PDF”, “nature paper trans” | [详情](skills/nature-paper-trans/README.md) |
 | [`nature-paper-card`](skills/nature-paper-card/README.md) | Beta | 精读单篇论文并生成有来源约束的 01–16 节 Paper Card，覆盖方法逻辑、实验—结论证据链、结论边界、批判性分析和可检验研究想法 | “nature paper card”, “论文精读”, “Paper Card”, “证据链”, “结论边界” | [详情](skills/nature-paper-card/README.md) |
 | [`nature-response`](skills/nature-response/README.md) | Beta | 解析返修邮件，为互盲审稿人分别生成独立回复，并提供 cover letter、标红稿、LaTeX 模板和返修包一致性检查 | “response to reviewers”, “rebuttal letter”, “cover letter”, “major revision”, “返修邮件”, “审稿意见回复”, “修回信”, “LaTeX 模板” | [详情](skills/nature-response/README.md) |
 | [`nature-paper2ppt`](skills/nature-paper2ppt/README.md) | Beta | 从科研论文生成中文 PPTX 文献汇报 deck | “paper PPT”, “journal club”, “paper to slides”, “论文汇报” | [详情](skills/nature-paper2ppt/README.md) |
@@ -667,4 +668,4 @@ description: >-
 
 ## 8. Star 历史
 
-[![Star History Chart](assets/star-history-20261019T023923Z.svg)](https://star-history.com/#Yuan1z0825/nature-skills&Date)
+[![Star History Chart](assets/star-history-20261025T023713Z.svg)](https://star-history.com/#Yuan1z0825/nature-skills&Date)

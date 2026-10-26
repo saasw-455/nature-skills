@@ -16,7 +16,7 @@ import unittest
 from unittest import mock
 import uuid
 
-import fitz
+import pymupdf as fitz
 from PIL import Image
 
 SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "pages.py"
@@ -266,12 +266,16 @@ class PagesTests(unittest.TestCase):
         self.rejected("assemble", "--output", target)
         self.assertEqual({path: Path(path).read_bytes() for path in original}, original)
 
-    def test_pdf_only_assembly_skips_review_and_report(self):
+    def test_pdf_only_assembly_requires_review_but_skips_report(self):
         self.prepare()
         attempt = self.reserve()
         self.record(1, attempt, self.red)
         target = self.root / "pdf-only.pdf"
+        self.rejected("assemble", "--output", target, "--pdf-only")
+        self.assertFalse(target.exists())
+        self.review(1, attempt)
         result = self.ok("assemble", "--output", target, "--pdf-only")
+        self.assertEqual(result["review_summary"], {"pass": [1], "issue": [], "unknown": []})
         self.assertEqual(result["output"], str(target.resolve()))
         self.assertNotIn("report", result)
         self.assertTrue(target.is_file())
@@ -286,6 +290,8 @@ class PagesTests(unittest.TestCase):
         second = self.reserve(2)
         self.record(2, second, self.blue)
         target = self.root / "mixed-sizes.pdf"
+        self.review(1, first)
+        self.review(2, second)
         result = self.ok("assemble", "--output", target, "--pdf-only")
         self.assert_pdf(target, [(240, 10, 20), (20, 40, 240)], [(80, 100), (140, 70)])
 
@@ -294,6 +300,7 @@ class PagesTests(unittest.TestCase):
         attempt = self.reserve()
         self.record(1, attempt, self.red)
         target = self.root / "a4.pdf"
+        self.review(1, attempt)
         self.ok("assemble", "--output", target, "--pdf-only", "--a4")
         self.assert_pdf(target, [(240, 10, 20)], [(210 * 72 / 25.4, 297 * 72 / 25.4)])
 
@@ -404,12 +411,12 @@ class PagesTests(unittest.TestCase):
         module = self.page_module()
         target = self.root / "partial-pair.pdf"
         report = target.with_name(target.stem + "_逐页检查说明.md")
-        real_link = module.os.link
+        real_publish = module._publish_without_replace
         def fail_report_publication(source, destination):
             if Path(destination) == report:
                 raise OSError("Interrupted before publishing the report")
-            return real_link(source, destination)
-        with mock.patch.object(module.os, "link", side_effect=fail_report_publication):
+            return real_publish(source, destination)
+        with mock.patch.object(module, "_publish_without_replace", side_effect=fail_report_publication):
             with self.assertRaises(OSError):
                 module.assemble(self.assembly_args(target), self.job)
         self.assertTrue(target.exists())
@@ -431,7 +438,7 @@ class PagesTests(unittest.TestCase):
                 report = target.with_name(target.stem + "_逐页检查说明.md")
                 def fail_publication(source, destination):
                     raise OSError("Interrupted before publication")
-                with mock.patch.object(module.os, "link", side_effect=fail_publication):
+                with mock.patch.object(module, "_publish_without_replace", side_effect=fail_publication):
                     with self.assertRaises(OSError):
                         module.assemble(self.assembly_args(target), self.job)
                 self.assertFalse(target.exists())
